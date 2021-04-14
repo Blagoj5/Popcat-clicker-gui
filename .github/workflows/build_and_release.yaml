@@ -73,5 +73,7 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            **\make\**\*.exe
-            **\make\**\*.nupkg
+            **/make/**/*.exe
+            **/make/**/*.nupkg
+            catpop_click_script-1.0.1-full.nupkg
+            catpop-click-script-1.0.1 Setup.exe
