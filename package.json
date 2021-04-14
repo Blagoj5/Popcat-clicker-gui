@@ -1,0 +1,24 @@
+{
+  "name": "catpop-click-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "tsc --watch",
+    "start": "electron ."
+  },
+  "author": "Blagoj",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^15.12.0",
+    "puppeteer": "^8.0.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@types/puppeteer": "^5.4.3",
+    "electron": "12.0.3",
+    "webpack": "^5.32.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

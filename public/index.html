@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Catpop click winner</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="preload.js"></script>
+     <script >
+       var {popScript} = require("../dist/popClickScript.js")
+    </script>
+  </head>
+  <body>
+    <h1 id="title">Welcome to catpop.click script! Only for Macedonians :)</h1>
+      <p>Run script in:</p>
+      <div class="buttons">
+        <div>
+          <button onclick="popScript(true)">Background mode</button>
+          <p>Script runs silently in background</p>
+        </div>
+        <div>
+          <button onclick="popScript(false)">Foreground mode</button>
+          <p>You can visually see the browser and the clicks happening</p>
+        </div>
+        </div>
+      </div>
+      <p style="display: none;"  id='startDate'>Script started at: </p>
+      <p style="display: none;"  id='finishDate'>Script finished at: <span></span></p>
+      <p style="display: none;"  id='timesClicked'>Approximately clicked: <span></span></p>
+  </body>
+</html>
