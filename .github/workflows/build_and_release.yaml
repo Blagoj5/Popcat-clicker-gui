@@ -24,8 +24,8 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            *.deb
-            *.rpm
+            **/*.deb
+            **/*.rpm
 
   build_on_mac:
     runs-on: macos-latest
@@ -49,8 +49,8 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            *.deb
-            *.rpm
+            **/*.deb
+            **/*.rpm
 
   build_on_win:
     runs-on: windows-latest
@@ -74,4 +74,4 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            *.exe
+            **/*.exe
