@@ -64,8 +64,7 @@
           "config": {
             "repository": {
               "owner": "blagoj5",
-              "name": "catpop-click-script",
-              "draft": true
+              "name": "catpop-click-script"
             }
           }
         }
