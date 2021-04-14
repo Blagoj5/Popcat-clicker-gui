@@ -16,7 +16,7 @@ jobs:
       - name: make
         run: npm run make
       - name: ls
-        run: ls out/make/*/*
+        run: ls -R out/make/
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -24,8 +24,8 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            **/catpop-click*.deb
-            **catpop-click*.rpm
+            **/make/**/*.deb
+            **/make/**/*.rpm
 
   build_on_mac:
     runs-on: macos-latest
@@ -41,7 +41,7 @@ jobs:
       - name: make
         run: npm run make
       - name: ls
-        run: ls out/make/**
+        run: ls -R out/make/
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -49,7 +49,7 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            **/*.pkg
+            **/make/**/*.pkg
 
   build_on_win:
     runs-on: windows-latest
@@ -65,7 +65,7 @@ jobs:
       - name: make
         run: npm run make
       - name: ls
-        run: ls out/make/**
+        run: ls -R out/make/
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -73,5 +73,4 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            # **/*.exe
-            **/squirrel.windows
+            squirrel.windows
