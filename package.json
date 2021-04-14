@@ -1,14 +1,16 @@
 {
   "name": "catpop-click-script",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Software made for winning on popcat.click",
   "main": "dist/index.js",
   "scripts": {
     "watch": "tsc --watch",
     "start": "electron-forge start",
+    "build": "tsc",
     "package": "electron-forge package",
     "publish": "electron-forge publish",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "push": "npm version patch --no-git-tag-version && git push"
   },
   "author": "Blagoj",
   "license": "ISC",
@@ -62,7 +64,8 @@
           "config": {
             "repository": {
               "owner": "blagoj5",
-              "name": "catpop-click-script"
+              "name": "catpop-click-script",
+              "draft": true
             }
           }
         }
