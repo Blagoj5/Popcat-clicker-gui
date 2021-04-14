@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="preload.js"></script>
      <script >
-       var {popScript} = require("../dist/popClickScript.js")
+       var {popScript, Clicker} = require("../dist/popClickScript.js")
+       const clicker = new Clicker()
     </script>
   </head>
   <body>
@@ -18,17 +19,29 @@
       <p>Run script in:</p>
       <div class="buttons">
         <div>
-          <button onclick="popScript(true)">Background mode</button>
+          <button class="button" onclick="clicker.initScript(true)">Background mode</button>
           <p>Script runs silently in background</p>
         </div>
         <div>
-          <button onclick="popScript(false)">Foreground mode</button>
+          <button class="button" onclick="clicker.initScript(false)">Foreground mode</button>
           <p>You can visually see the browser and the clicks happening</p>
         </div>
         </div>
       </div>
+      <label style="font-size: medium;" for="select">Select number of pages that will execute the script:</label>
+      <select id="select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+      <!-- <button class="button" onclick="clicker.initScriptWithMultiplePages(false)" >Test</button>
+      <button class="button" onclick="clicker.initScriptWithHowMany()" >Test 2</button> -->
       <p style="display: none;"  id='startDate'>Script started at: </p>
       <p style="display: none;"  id='finishDate'>Script finished at: <span></span></p>
       <p style="display: none;"  id='timesClicked'>Approximately clicked: <span></span></p>
+      <button class="button" onclick="clicker.exit()" >Stop script and show results</button>
   </body>
 </html>
