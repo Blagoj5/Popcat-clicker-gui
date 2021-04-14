@@ -35,6 +35,14 @@
   },
   "config": {
     "forge": {
+      "github_repository": {
+        "owner": "blagoj5",
+        "name": "catpop-click-script",
+        "options": {
+          "protocol": "https",
+          "host": "api.github.com"
+        }
+      },
       "packagerConfig": {},
       "makers": [
         {
