@@ -9,8 +9,6 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 14
-      - name: install dpkg
-        run: sudo apt-get install dpkg
       - name: install dependencies
         run: npm install
       - name: build
@@ -72,8 +70,8 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: false
+          prerelease: true
           title: "Release"
           files: |
-            out\make\squirrel.windows\x64\*.exe
-            out\make\squirrel.windows\x64\*.nupkg
+            D:\a\Popcat-clicker-gui\Popcat-clicker-gui\out\make\squirrel.windows\x64\*.exe
+            D:\a\Popcat-clicker-gui\Popcat-clicker-gui\out\make\squirrel.windows\x64\*.nupkg
