@@ -73,5 +73,5 @@ jobs:
           prerelease: true
           title: "Release"
           files: |
-            D:\a\Popcat-clicker-gui\Popcat-clicker-gui\out\make\squirrel.windows\x64\*.exe
-            D:\a\Popcat-clicker-gui\Popcat-clicker-gui\out\make\squirrel.windows\x64\*.nupkg
+            **\make\**\*.exe
+            **\make\**\*.nupkg
