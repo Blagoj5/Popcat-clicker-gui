@@ -1,7 +1,8 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
-
 function createWindow() {
+  if (require('electron-squirrel-startup')) return app.quit();
+
   const htmlPath = path.join(__dirname, '../public/index.html');
 
   const win = new BrowserWindow({

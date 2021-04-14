@@ -8,6 +8,7 @@ export class Clicker {
   headless: boolean;
   clickedTimes: number = 0;
 
+  // Time 17 secs - 1500 clicks
   async initScript(headless: boolean) {
     this.clickedTimes = 0;
     this.browser = await puppeteer.launch({
@@ -31,16 +32,15 @@ export class Clicker {
     const startDate = document.getElementById('startDate');
     if (startDate) {
       const span = document.createElement('span');
-      span.textContent = ` ${new Date().toString()}`;
+      span.textContent = ` ${new Date().toString()}, `;
       startDate.appendChild(span);
       startDate.style.display = 'block';
     }
 
-    let i = 0;
-    while (i < 100) {
+    // let i = 0;
+    while (true) {
       for (let index = 0; index < pages.length; index++) {
         const page = pages[index];
-        console.log('page');
 
         await page.keyboard.press('a');
         await page.keyboard.press('d');
@@ -49,64 +49,31 @@ export class Clicker {
         await page.keyboard.press('p');
         this.clickedTimes += 5;
       }
-      i += 1;
-      console.log('Clicked');
+      // i += 1;
+      // console.log('Clicked');
     }
+
+    // await this.exit();
   }
 
   async exit() {
     if (this.browser) {
       const finishDate = document.getElementById('finishDate');
       if (finishDate) {
-        const text = document.createTextNode(` ${new Date().toString()}`);
+        const text = document.createTextNode(` ${new Date().toString()}, `);
         finishDate.appendChild(text);
         finishDate.style.display = 'block';
       }
 
       const timesClicked = document.getElementById('timesClicked');
       if (timesClicked) {
-        const clicks = document.createTextNode(this.clickedTimes.toString());
+        const clicks = document.createTextNode(
+          `${this.clickedTimes.toString()}, `
+        );
         timesClicked.appendChild(clicks);
         timesClicked.style.display = 'block';
       }
       await this.browser.close();
     }
   }
-
-  // TODO: test better way
-  async initScriptWithMultiplePages(headless: boolean) {
-    this.headless = headless;
-    this.browser = await puppeteer.launch({
-      headless: false,
-    });
-    this.clickedTimes = 0;
-
-    const howMany = document.getElementById('select');
-
-    const startDate = document.getElementById('startDate');
-    if (startDate) {
-      const span = document.createElement('span');
-      span.textContent = ` ${new Date().toString()}`;
-      startDate.appendChild(span);
-      startDate.style.display = 'block';
-    }
-
-    const browsers: Promise<any>[] = [];
-    for (
-      let index = 0;
-      index < +(howMany as HTMLSelectElement).value;
-      index++
-    ) {
-      browsers.push(
-        new Promise(async () => {
-          await this.initScript(false);
-        })
-      );
-    }
-    await Promise.all(browsers);
-
-    await this.exit();
-  }
 }
-
-// TODO: Fix the spamming of buttons and text
