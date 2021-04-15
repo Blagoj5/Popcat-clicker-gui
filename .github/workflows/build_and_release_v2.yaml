@@ -1,9 +1,6 @@
 name: Publish
 
-on:
-  push:
-    tags:
-      - "*"
+on: push
 
 jobs:
   publish:
@@ -34,6 +31,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ matrix.glob }}
-          tag: ${{ github.ref }}
+          tag: latest
           file_glob: true
           overwrite: false
