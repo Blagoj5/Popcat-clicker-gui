@@ -1,0 +1,39 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish:
+    name: Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            glob: |
+              **/make/**/*.deb
+          - os: ubuntu-latest
+            glob: |
+              **/make/**/*.rpm
+          - os: windows-latest
+            glob: |
+              **/make/**/*.exe
+          - os: macos-latest
+            glob: |
+              **/make/**/*.zip
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: cargo build --release --locked
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ matrix.glob }}
+          tag: ${{ github.ref }}
+          file_glob: true
+          overwrite: false

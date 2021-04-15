@@ -1,6 +1,6 @@
 {
   "name": "catpop-click-script",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "Software made for winning on popcat.click",
   "main": "dist/index.js",
   "scripts": {
