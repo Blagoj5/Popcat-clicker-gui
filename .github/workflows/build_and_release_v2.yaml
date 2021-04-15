@@ -24,8 +24,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Build
-        run: cargo build --release --locked
+      - uses: actions/setup-node@master
+        with:
+          node-version: 14
+      - name: install dependencies
+        run: npm install
+      - name: build
+        run: npm run build
+      - name: make
+        run: npm run make
+      - name: ls
+        run: ls -R out/make/
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
